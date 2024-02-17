@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{% static 'images/brainstorm.jpg' %}" alt="Image 1" class=" rounded-lg shadow-lg" width="360"  height="250">
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'images/childlibrary.jpg' %}" alt="Image 2" class=" rounded-lg shadow-lg" width="360"  height="250">
+        </div>
+        <div class="col-lg-4">
+            <img src="{% static 'images/manlibrary.jpg' %}" alt="Image 3" class=" rounded-lg shadow-lg" width="360"  height="250">
+        </div>
+        <!-- Add more columns/images as needed -->
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+                <center><p class="h1 text-secondary">Read to expand, learn to transcend</p></center>
+            
+                <center><p class="h2">In books, discovery awaits</p></center>
+                    
+                <center><p class="h5">Knowledge begins with a page turned</p></center>
+            
+                <center><a href="{% url 'crescent' %}"><button type="button" class="btn btn-primary btn-lg mt-3 shadow">Get started</button></a></center>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
