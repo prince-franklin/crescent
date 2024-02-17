@@ -33,9 +33,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'library.wsgi.application'
     }
 }'''
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env("DJANGO_DB_NAME"),
@@ -103,7 +103,7 @@ DATABASES = {
         'HOST':   env("DJANGO_DB_HOST"),
         'PORT':  env("DJANGO_DB_PORT"),
     }
-}
+}'''
 
 
 # Password validation
@@ -151,3 +151,13 @@ LOGIN_URL='login'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Render postgreSQL database (live)
+
+import dj_database_url
+
+DATABASES ={
+    
+    'default' : dj_database_url.parse(env('DATABASE_URL'))
+}
